@@ -1,0 +1,98 @@
+Short:        ZX Spectrum emulator for MorphOS
+Author:       Michal Zukowski
+Type:         misc/emu
+Version:      1.9.2
+Architecture: ppc-morphos
+Requires:     MorphOS >= 3.18
+Distribution: Aminet
+
+Fuse 1.9.2 for MorphOS
+======================
+
+Fuse is a ZX Spectrum emulator with support for many Spectrum models,
+peripherals and common tape, disk and snapshot formats.
+
+This MorphOS version provides a native MUI interface and MorphOS video,
+audio, input and requester support.
+
+Requirements
+------------
+
+  - MorphOS 3.18 or newer
+
+Installation
+------------
+
+Unpack Fuse.lha to any directory and keep the supplied directory structure
+intact. Everything required to start the MorphOS port is included in the Fuse
+directory.
+
+Start the emulator by double-clicking the Fuse icon/executable from Ambient,
+or run Fuse from Shell.
+
+Do not move the roms, lib, ui or Catalogs directories away from the Fuse
+program directory.
+
+Video
+-----
+
+The MorphOS port provides three video modes:
+
+  Surface
+    Software rendering. The window size follows the selected Fuse scaler or
+    filter.
+
+  Overlay
+    Hardware-assisted CGXVideo output when available. The window can be
+    resized and the image keeps its aspect ratio.
+
+  TinyGL
+    TinyGL accelerated output when available. The window can be resized and
+    the image keeps its aspect ratio.
+
+If an accelerated video mode cannot be opened, Fuse falls back to another
+available mode.
+
+Fullscreen uses a dedicated MorphOS screen. Overlay and TinyGL use the Ambient
+screen mode and scale the picture to the largest possible size while keeping
+the correct aspect ratio. Surface fullscreen chooses a screen size suitable
+for the active scaler or filter.
+
+Localization
+------------
+
+English text is built into the program. A Polish catalog is included in:
+
+  Catalogs/polski/Fuse.catalog
+
+MorphOS Locale preferences select the language automatically.
+
+The Catalogs directory also contains translation source files for people who
+want to prepare additional languages.
+
+Preferences
+-----------
+
+Fuse can be configured from its MUI menus. An example MorphOS preferences file
+is supplied as:
+
+  Fuse_MorphOS_prefs.example
+
+MorphOS-specific preferences may be stored as:
+
+  ENV:Fuse_MorphOS_prefs
+  ENVARC:Fuse_MorphOS_prefs
+
+The example file documents the available MorphOS-specific options.
+
+Included files
+--------------
+
+The distribution contains the Fuse executable together with the ROMs, UI
+data, font and locale files needed by this MorphOS port. Keep these files in
+their original directories below the Fuse program directory.
+
+License
+-------
+
+Fuse is free software. See the included COPYING file for license information.

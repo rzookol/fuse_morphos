@@ -1,0 +1,4 @@
+Fuse.ct encoding: ISO-8859-2 (Latin-2)
+CatComp header: ## codeset 5 (IANA MIBenum 5)
+Language directory: polski
+Do not save Fuse.ct as UTF-8.

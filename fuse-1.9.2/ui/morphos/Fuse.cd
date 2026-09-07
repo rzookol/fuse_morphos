@@ -1,0 +1,791 @@
+; Fuse.cd - MorphOS native GUI catalog descriptor
+## version $VER: Fuse.catalog 1.4 (07.09.2026)
+MSG_000 (//)
+File
+;
+MSG_001 (//)
+Open...
+;
+MSG_002 (//)
+Save snapshot...
+;
+MSG_003 (//)
+Exit
+;
+MSG_004 (//)
+Machine
+;
+MSG_005 (//)
+Pause
+;
+MSG_006 (//)
+Reset...
+;
+MSG_007 (//)
+Hard reset...
+;
+MSG_008 (//)
+Select machine...
+;
+MSG_009 (//)
+Media
+;
+MSG_010 (//)
+Tape
+;
+MSG_011 (//)
+Play
+;
+MSG_012 (//)
+Stop
+;
+MSG_013 (//)
+Rewind
+;
+MSG_014 (//)
+Clear
+;
+MSG_015 (//)
+Write...
+;
+MSG_016 (//)
+Disk
+;
+MSG_017 (//)
+Insert...
+;
+MSG_018 (//)
+Eject
+;
+MSG_019 (//)
+Save
+;
+MSG_020 (//)
+Save as...
+;
+MSG_021 (//)
+Options
+;
+MSG_022 (//)
+Video
+;
+MSG_023 (//)
+Surface
+;
+MSG_024 (//)
+Overlay
+;
+MSG_025 (//)
+TinyGL
+;
+MSG_026 (//)
+VSync
+;
+MSG_027 (//)
+TinyGL linear filtering
+;
+MSG_028 (//)
+Full screen
+;
+MSG_029 (//)
+Input
+;
+MSG_030 (//)
+Grab mouse
+;
+MSG_031 (//)
+Help
+;
+MSG_032 (//)
+About Fuse
+;
+MSG_033 (//)
+Recording
+;
+MSG_034 (//)
+Screenshot
+;
+MSG_035 (//)
+Movie
+;
+MSG_036 (//)
+Peripherals
+;
+MSG_037 (//)
+Joysticks
+;
+MSG_038 (//)
+Joystick 1...
+;
+MSG_039 (//)
+Joystick 2...
+;
+MSG_040 (//)
+Gamepad 1
+;
+MSG_041 (//)
+Gamepad 2
+;
+MSG_042 (//)
+Gamepad 3
+;
+MSG_043 (//)
+Gamepad 4
+;
+MSG_044 (//)
+Interface 1
+;
+MSG_045 (//)
+Interface 2
+;
+MSG_046 (//)
+IDE
+;
+MSG_047 (//)
+Cartridge
+;
+MSG_048 (//)
+General...
+;
+MSG_049 (//)
+Media...
+;
+MSG_050 (//)
+Sound...
+;
+MSG_051 (//)
+Disk options...
+;
+MSG_052 (//)
+Save settings
+;
+MSG_053 (//)
+Debugger
+;
+MSG_054 (//)
+Poke finder
+;
+MSG_055 (//)
+Poke memory
+;
+MSG_056 (//)
+Memory browser
+;
+MSG_057 (//)
+NMI
+;
+MSG_058 (//)
+Profiler
+;
+MSG_059 (//)
+Open tape image
+;
+MSG_060 (//)
+Save tape image
+;
+MSG_061 (//)
+Open snapshot
+;
+MSG_062 (//)
+Save snapshot
+;
+MSG_063 (//)
+Fuse warning
+;
+MSG_064 (//)
+OK
+;
+MSG_065 (//)
+Cancel
+;
+MSG_066 (//)
+Running
+;
+MSG_067 (//)
+Paused
+;
+MSG_068 (//)
+Mouse:free
+;
+MSG_069 (//)
+Mouse:grabbed
+;
+MSG_070 (//)
+Tape:idle
+;
+MSG_071 (//)
+Tape:active
+;
+MSG_072 (//)
+Disk:idle
+;
+MSG_073 (//)
+Disk:active
+;
+MSG_074 (//)
+MDR:idle
+;
+MSG_075 (//)
+MDR:active
+;
+MSG_076 (//)
+Reset Spectrum
+;
+MSG_077 (//)
+Pause or resume emulation
+;
+MSG_078 (//)
+Start or stop tape
+;
+MSG_079 (//)
+Stop tape
+;
+MSG_080 (//)
+Rewind tape
+;
+MSG_081 (//)
+Eject disk from +3 drive A
+;
+MSG_082 (//)
+Eject disk from +3 drive B
+;
+MSG_083 (//)
+Toggle fast emulation
+;
+MSG_084 (//)
+Fuse for MorphOS
+;
+MSG_085 (//)
+ZX Spectrum emulator
+;
+MSG_086 (//)
+Fuse is free software under the GNU GPL.
+;
+MSG_087 (//)
++3
+;
+MSG_088 (//)
++D
+;
+MSG_089 (//)
++D...
+;
+MSG_090 (//)
+AY logging
+;
+MSG_091 (//)
+Beta
+;
+MSG_092 (//)
+Beta 128...
+;
+MSG_093 (//)
+Browse...
+;
+MSG_094 (//)
+Commit
+;
+MSG_095 (//)
+Continue
+;
+MSG_096 (//)
+Continue recording...
+;
+MSG_097 (//)
+DISCiPLE
+;
+MSG_098 (//)
+DISCiPLE...
+;
+MSG_099 (//)
+Didaktik 80
+;
+MSG_100 (//)
+Didaktik 80...
+;
+MSG_101 (//)
+Didaktik SNAP
+;
+MSG_102 (//)
+Disable
+;
+MSG_103 (//)
+Disk...
+;
+MSG_104 (//)
+DivIDE
+;
+MSG_105 (//)
+Enable
+;
+MSG_106 (//)
+Filter...
+;
+MSG_107 (//)
+Finalise...
+;
+MSG_108 (//)
+Flip disk
+;
+MSG_109 (//)
+Insert new
+;
+MSG_110 (//)
+Insert snapshot
+;
+MSG_111 (//)
+Interface 1...
+;
+MSG_112 (//)
+Keyboard
+;
+MSG_113 (//)
+Keyboard...
+;
+MSG_114 (//)
+Load binary data...
+;
+MSG_115 (//)
+Machine ROMs
+;
+MSG_116 (//)
+Movie...
+;
+MSG_117 (//)
+Multiface 128...
+;
+MSG_118 (//)
+Multiface 3...
+;
+MSG_119 (//)
+Multiface One...
+;
+MSG_120 (//)
+Multiface red button
+;
+MSG_121 (//)
+Open MLT...
+;
+MSG_122 (//)
+Open SCR...
+;
+MSG_123 (//)
+Opus
+;
+MSG_124 (//)
+Opus Discovery...
+;
+MSG_125 (//)
+Pentagon 1024K...
+;
+MSG_126 (//)
+Pentagon 128K...
+;
+MSG_127 (//)
+Pentagon 512K...
+;
+MSG_128 (//)
+Peripheral ROMs
+;
+MSG_129 (//)
+Play...
+;
+MSG_130 (//)
+Plug RxD
+;
+MSG_131 (//)
+Plug TxD
+;
+MSG_132 (//)
+Plug in
+;
+MSG_133 (//)
+RS232
+;
+MSG_134 (//)
+RZX...
+;
+MSG_135 (//)
+Record from RZX...
+;
+MSG_136 (//)
+Record from snapshot...
+;
+MSG_137 (//)
+Record start
+;
+MSG_138 (//)
+Record stop
+;
+MSG_139 (//)
+Record...
+;
+MSG_140 (//)
+Rollback
+;
+MSG_141 (//)
+Rollback to...
+;
+MSG_142 (//)
+SP0256...
+;
+MSG_143 (//)
+SVG capture
+;
+MSG_144 (//)
+Save as MLT...
+;
+MSG_145 (//)
+Save as PNG...
+;
+MSG_146 (//)
+Save as SCR...
+;
+MSG_147 (//)
+Save binary data...
+;
+MSG_148 (//)
+Scorpion ZS 256...
+;
+MSG_149 (//)
+Select ROMs
+;
+MSG_150 (//)
+Simple 8-bit
+;
+MSG_151 (//)
+Sinclair NET
+;
+MSG_152 (//)
+SpeccyBoot...
+;
+MSG_153 (//)
+Spectrum +2...
+;
+MSG_154 (//)
+Spectrum +2A...
+;
+MSG_155 (//)
+Spectrum +3...
+;
+MSG_156 (//)
+Spectrum +3e...
+;
+MSG_157 (//)
+Spectrum 128K...
+;
+MSG_158 (//)
+Spectrum 16K...
+;
+MSG_159 (//)
+Spectrum 48K...
+;
+MSG_160 (//)
+Spectrum SE...
+;
+MSG_161 (//)
+Start
+;
+MSG_162 (//)
+Start dot capture...
+;
+MSG_163 (//)
+Start line capture...
+;
+MSG_164 (//)
+Stop capture
+;
+MSG_165 (//)
+TTX2000S...
+;
+MSG_166 (//)
+Timex Dock
+;
+MSG_167 (//)
+Timex TC2048...
+;
+MSG_168 (//)
+Timex TC2068...
+;
+MSG_169 (//)
+Timex TS2068...
+;
+MSG_170 (//)
+Turn back
+;
+MSG_171 (//)
+Turn upside down
+;
+MSG_172 (//)
+Unplug
+;
+MSG_173 (//)
+Unplug RxD
+;
+MSG_174 (//)
+Unplug TxD
+;
+MSG_175 (//)
+Write protect
+;
+MSG_176 (//)
+ZXATASP
+;
+MSG_177 (//)
+uSource...
+;
+MSG_178 (//)
+uSpeech...
+;
+MSG_179 (//)
+Filter options...
+;
+MSG_180 (//)
+Hue
+;
+MSG_181 (//)
+Saturation
+;
+MSG_182 (//)
+Contrast
+;
+MSG_183 (//)
+Brightness
+;
+MSG_184 (//)
+Sharpness
+;
+MSG_185 (//)
+Gamma
+;
+MSG_186 (//)
+Resolution
+;
+MSG_187 (//)
+Artifacts
+;
+MSG_188 (//)
+Fringing
+;
+MSG_189 (//)
+Bleed
+;
+MSG_190 (//)
+Apply
+;
+MSG_191 (//)
+Apply filter settings
+;
+MSG_192 (//)
+Defaults
+;
+MSG_193 (//)
+Restore default filter settings
+;
+MSG_194 (//)
+Close
+;
+MSG_195 (//)
+Close filter settings
+;
+MSG_196 (//)
+Browse Tape
+;
+MSG_197 (//)
+Select
+;
+MSG_198 (//)
+Move tape to selected block
+;
+MSG_199 (//)
+Close tape browser
+;
+MSG_200 (//)
+Memory Browser
+;
+MSG_201 (//)
+Previous 128 bytes
+;
+MSG_202 (//)
+Next 128 bytes
+;
+MSG_203 (//)
+Go
+;
+MSG_204 (//)
+Go to hexadecimal or decimal address
+;
+MSG_205 (//)
+Close memory browser
+;
+MSG_206 (//)
+Address:
+;
+MSG_207 (//)
+Poke Finder
+;
+MSG_208 (//)
+Increased
+;
+MSG_209 (//)
+Keep locations whose value increased
+;
+MSG_210 (//)
+Decreased
+;
+MSG_211 (//)
+Keep locations whose value decreased
+;
+MSG_212 (//)
+Search
+;
+MSG_213 (//)
+Search exact value 0..255
+;
+MSG_214 (//)
+Reset poke finder
+;
+MSG_215 (//)
+Write breakpoint
+;
+MSG_216 (//)
+Add debugger write breakpoint at selected location
+;
+MSG_217 (//)
+Close poke finder
+;
+MSG_218 (//)
+Value:
+;
+MSG_219 (//)
+Debug Monitor
+;
+MSG_220 (//)
+Refresh
+;
+MSG_221 (//)
+Refresh registers and disassembly
+;
+MSG_222 (//)
+Execute
+;
+MSG_223 (//)
+Execute Fuse debugger command
+;
+MSG_224 (//)
+Close monitor and continue emulation
+;
+MSG_225 (//)
+Command:
+;
+;
+; Additional native MorphOS GUI strings covered by CatComp locale IDs.
+;
+MSG_226 (//)
+Project
+;
+MSG_227 (//)
+Scaler
+;
+MSG_228 (//)
+Select machine
+;
+MSG_229 (//)
+About...
+;
+MSG_230 (//)
+Quit
+;
+MSG_231 (//)
+Border
+;
+MSG_232 (//)
+Fullscreen
+;
+MSG_233 (//)
+<< 128
+;
+MSG_234 (//)
+128 >>
+;
+MSG_235 (//)
+Reset
+;
+MSG_236 (//)
+Unknown machine
+;
+MSG_237 (//)
+Joystick 1
+;
+MSG_238 (//)
+Joystick 2
+;
+MSG_239 (//)
+Microdrive 1
+;
+MSG_240 (//)
+Microdrive 2
+;
+MSG_241 (//)
+Microdrive 3
+;
+MSG_242 (//)
+Microdrive 4
+;
+MSG_243 (//)
+Microdrive 5
+;
+MSG_244 (//)
+Microdrive 6
+;
+MSG_245 (//)
+Microdrive 7
+;
+MSG_246 (//)
+Microdrive 8
+;
+MSG_247 (//)
+Drive A:
+;
+MSG_248 (//)
+Drive B:
+;
+MSG_249 (//)
+Drive C:
+;
+MSG_250 (//)
+Drive D:
+;
+MSG_251 (//)
+Drive 1
+;
+MSG_252 (//)
+Drive 2
+;
+MSG_253 (//)
+Drive A
+;
+MSG_254 (//)
+Drive B
+;
+MSG_255 (//)
+Master
+;
+MSG_256 (//)
+Slave
+;
+MSG_257 (//)
+ZXCF CompactFlash
+;
+MSG_258 (//)
+DivMMC
+;
+MSG_259 (//)
+ZXMMC
+;
+MSG_260 (//)
+Live preview: PAL TV / NTSC TV filter parameters.
+;
+MSG_261 (//)
+These controls affect PAL TV / NTSC TV scalers only.
+;

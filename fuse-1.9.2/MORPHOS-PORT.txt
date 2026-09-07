@@ -1,0 +1,129 @@
+Fuse 1.9.2 native MorphOS frontend (C)
+======================================
+
+This tree adds a native MorphOS frontend written in C. The Spectrum emulation
+core remains upstream Fuse; MorphOS supplies native window/menu/event handling,
+presentation, audio and host-controller input.
+
+Native GUI
+----------
+* MUI application/window and native menu strip.
+* Broad File, Machine, Media, Video, Options, Input and Help menus.
+* Native MUI quick toolbar: Reset, Pause, Fast, Tape controls and +3 eject.
+* MUI Bubble Help on toolbar controls.
+* Native Aboutbox.mcc About window.
+* Native checkmarks for video mode, VSync, TinyGL filtering and fullscreen.
+* Native menu enable/disable state follows Fuse ui_menu_activate() state.
+* Status line for current machine, speed, tape, disk, microdrive, mouse and pause state.
+* Workbench/MUI AppWindow file drag-and-drop through Fuse auto-detection.
+* GTK-compatible host shortcuts: F2..F11, Insert, Delete and Pause.
+* Native composite Filter Options dialog with the GTK frontend's ten controls.
+* ASL requesters remember the last drawer during the session.
+* MUI ARexx application commands: QUIT, RESET, HARDRESET, PAUSE, FULLSCREEN,
+  OPEN and STATUS.
+* RAWKEY/mouse/focus handling through Intuition.
+* ASL file requesters are used by the widget file selector on MorphOS.
+* locale.library is optional; English fallback strings are always built in.
+
+Overlay-safe modal UI
+---------------------
+CGXVideo VLayer output can cover ordinary requester/dialog windows. The first
+level of an ASL requester, Fuse widget dialog or native Aboutbox temporarily
+switches an active Overlay presenter to Surface. The requested video mode is
+restored and redrawn after the outermost dialog closes. Nested dialogs are
+reference-counted.
+
+Video presenters
+----------------
+* Surface: CyberGraphX WritePixelArray.
+* Overlay: CGXVideo VLayer, double buffered and hardware scaled.
+* TinyGL: BMF_3DTARGET bitmap plus textured quad.
+
+Runtime fallback:
+  TinyGL -> Overlay -> Surface
+  Overlay -> Surface
+
+cgxvideo.library and tinygl.library are opened dynamically. TinyGL uses the
+MorphOS -lGL stubs when the port is built with _NO_PPCINLINE.
+
+Audio
+-----
+The native sound/ahisound.c backend uses ahi.device on AHI_DEFAULT_UNIT. It is
+modelled after the supplied openMSX MorphOS audio architecture but remains C:
+* dedicated Exec worker task created with NewCreateTaskA();
+* 12 preallocated PCM ring slots;
+* 2048-frame normal fragments;
+* two linked AHIRequest objects;
+* 512-frame short recovery silence on underrun;
+* small queue-depth frequency correction.
+
+sound_lowlevel_frame() only fills/enqueues PCM and signals the worker; it does
+not WaitIO() and does not intentionally throttle emulation. If the ring is
+full, audio is dropped. Device waiting, reaping and shutdown remain inside the
+worker task.
+
+Input
+-----
+MorphOS lowlevel.library is opened dynamically and polled via ReadJoyPort().
+Two Fuse host joystick slots can map to any of four lowlevel gamepads and keep
+working across hot-plug. RED/BLUE map to Fire 1/2 and further CD32-style
+buttons are exposed as additional Fuse fire inputs.
+
+Preferences
+-----------
+Volatile:   ENV:Fuse_MorphOS_prefs
+Persistent: ENVARC:Fuse_MorphOS_prefs
+
+Recognized native preferences include:
+  video_mode=surface|overlay|gl
+  filter=<Fuse scaler id, e.g. normal|2x|3x|hq2x>
+  machine=<Fuse machine id, e.g. 48|128|plus2|plus3>
+  vsync=0|1
+  gl_linear=0|1
+  joystick1_port=0..3
+  joystick2_port=0..3
+  grab_mouse=0|1
+
+Options -> Save settings writes the persistent MorphOS preferences.
+
+Locale
+------
+The MorphOS localization layout follows the rdesktop port's CatComp scheme:
+  ui/morphos/Fuse.cd
+  ui/morphos/Fuse_strings.h
+  ui/morphos/locale.c
+  ui/morphos/locale.h
+  ui/morphos/catalogs/polski/Fuse.ct
+
+Call sites use LOCSTR(MSG_xxx). Fuse_strings.h contains the CatCompArray and
+compiled-in English fallback, while locale.c opens Fuse.catalog through
+locale.library. The Polish CT file uses codeset 5 (ISO-8859-2) and contains
+MSG_000..MSG_261.
+
+`make -f Makefile.morphos catalog` builds the binary catalog with CatComp.
+`make -f Makefile.morphos install-catalog` installs it by default as:
+  SYS:MorphOS/Locale/Catalogs/polski/Fuse.catalog
+Set BOOTDEVICE on the make command line if SYS: is not the desired boot
+volume. If the binary catalog or locale.library is unavailable, the built-in
+English strings are used.
+
+Build selection
+---------------
+  ./configure --with-morphos --with-audio-driver=ahi --with-joystick ...
+
+The combined source bundle includes libspectrum-1.6.4 and a top-level
+Makefile.morphos which builds libspectrum first and then Fuse without requiring
+SDL/GTK.
+
+Runtime layout
+--------------
+MorphOS compatibility paths first search PROGDIR:. Typical application layout:
+  PROGDIR:Fuse
+  PROGDIR:roms/
+  PROGDIR:settings/
+
+The optional system locale catalog is installed separately at:
+  SYS:MorphOS/Locale/Catalogs/polski/Fuse.catalog
+
+The widget font is expected at:
+  PROGDIR:ui/widget/fuse.font

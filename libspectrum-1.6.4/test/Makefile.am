@@ -1,0 +1,154 @@
+## Process this file with automake to produce Makefile.in
+## Copyright (c) 2007,2015,2021,2026 Philip Kendall
+
+## This program is free software; you can redistribute it and/or modify
+## it under the terms of the GNU General Public License as published by
+## the Free Software Foundation; either version 2 of the License, or
+## (at your option) any later version.
+##
+## This program is distributed in the hope that it will be useful,
+## but WITHOUT ANY WARRANTY; without even the implied warranty of
+## MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+## GNU General Public License for more details.
+##
+## You should have received a copy of the GNU General Public License along
+## with this program; if not, write to the Free Software Foundation, Inc.,
+## 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+##
+## Author contact information:
+##
+## E-mail: philip-fuse@shadowmagic.org.uk
+
+check_PROGRAMS = test/test
+
+TESTS = $(check_PROGRAMS)
+
+test_test_SOURCES = \
+	test/buffer.c \
+	test/capabilities.c \
+	test/common.c \
+	test/creator.c \
+	test/edges.c \
+	test/main.c \
+	test/microdrive.c \
+	test/registry.c \
+	test/rzx.c \
+	test/snap-memory.c \
+	test/snap-peripherals.c \
+	test/snap-read.c \
+	test/snap-storage.c \
+	test/snap-z80.c \
+	test/szx.c \
+	test/tape-edges.c \
+	test/tape-iterator.c \
+	test/tape.c \
+	test/timings.c \
+	test/utilities.c \
+	test/identify.c
+
+# The test program links the static archive to exercise private helpers.
+# On Windows, avoid dllimport declarations for the archive's public symbols.
+test_test_CFLAGS = -DSRCDIR='"$(srcdir)"' -DLIBSPECTRUM_EXPORTS
+
+test_test_DEPENDENCIES = libspectrum.la \
+			 test/complete-tzx.tzx \
+			 test/wav-mono-threshold.wav \
+			 test/wav-stereo-mixdown.wav
+
+noinst_DATA += test/complete-tzx.tzx \
+		test/wav-mono-threshold.wav \
+		test/wav-stereo-mixdown.wav
+
+noinst_HEADERS += \
+	test/common.h \
+	test/registry.h \
+	test/test.h
+
+test/complete-tzx.tzx: test/complete-tzx.pl
+	$(AM_V_GEN)$(PERL) $< > $@.tmp && mv $@.tmp $@
+
+test/wav-mono-threshold.wav: test/wav-fixtures.pl
+	$(AM_V_GEN)$(PERL) $< mono-threshold > $@.tmp && mv $@.tmp $@
+
+test/wav-stereo-mixdown.wav: test/wav-fixtures.pl
+	$(AM_V_GEN)$(PERL) $< stereo-mixdown > $@.tmp && mv $@.tmp $@
+
+test_test_LDADD = libspectrum.la
+test_test_LDFLAGS = -static
+
+EXTRA_DIST += \
+	test/Makefile.am \
+	test/complete-tzx.pl \
+	test/wav-fixtures.pl \
+	test/empty-drb.tzx \
+	test/empty.csw \
+	test/empty.szx \
+	test/empty.z80 \
+	test/invalid-archiveinfo.tzx \
+	test/invalid-custominfo.tzx \
+	test/invalid-gdb.tzx \
+	test/invalid-hardwareinfo.tzx \
+	test/invalid-warajevo-blockoffset.tap \
+	test/invalid.gz \
+	test/invalid-repeat-frame.rzx \
+	test/invalid.szx \
+	test/invalid.tzx \
+	test/jump.tzx \
+	test/loop.tzx \
+	test/loop2.tzx \
+	test/loopend.tzx \
+	test/no-pilot-gdb.tzx \
+	test/plus3.z80 \
+	test/pure-data-usedbits-zero.tzx \
+	test/random.szx \
+	test/raw-data-block.tzx \
+	test/sp-2000.sna.gz \
+	test/sp-ffff.sna.gz \
+	test/standard-tap.tap \
+	test/szx-chunks/AMXM.szx \
+	test/szx-chunks/ATRP.szx \
+	test/szx-chunks/ATRP-uncompressed.szx.gz \
+	test/szx-chunks/AY.szx \
+	test/szx-chunks/B128.szx \
+	test/szx-chunks/CFRP.szx \
+	test/szx-chunks/CFRP-uncompressed.szx.gz \
+	test/szx-chunks/COVX.szx \
+	test/szx-chunks/DIDE.szx \
+	test/szx-chunks/DIRP.szx \
+	test/szx-chunks/DMMC.szx \
+	test/szx-chunks/DMRP.szx \
+	test/szx-chunks/DOCK.szx \
+	test/szx-chunks/DRUM.szx \
+	test/szx-chunks/IF1.szx \
+	test/szx-chunks/IF2R.szx \
+	test/szx-chunks/JOY.szx \
+	test/szx-chunks/KEYB.szx \
+	test/szx-chunks/MFCE.szx \
+	test/szx-chunks/OPUS.szx \
+	test/szx-chunks/PLSD.szx \
+	test/szx-chunks/PLTT.szx \
+	test/szx-chunks/RAMP.szx \
+	test/szx-chunks/RAMP-uncompressed.szx.gz \
+	test/szx-chunks/SCLD.szx \
+	test/szx-chunks/SIDE.szx \
+	test/szx-chunks/SNEF.szx \
+	test/szx-chunks/SNER.szx \
+	test/szx-chunks/SNET.szx \
+	test/szx-chunks/SPCR.szx \
+	test/szx-chunks/USPE.szx \
+	test/szx-chunks/Z80R.szx \
+	test/szx-chunks/ZMMC.szx \
+	test/szx-chunks/ZXAT.szx \
+	test/szx-chunks/ZXCF.szx \
+	test/szx-chunks/ZXPR.szx \
+	test/trailing-pause-block.tzx \
+	test/turbo-zeropilot.tzx \
+	test/writeprotected.mdr \
+	test/zero-tail.pzx \
+	test/pzx-archive-info-tags.pzx
+
+CLEANFILES += \
+	test/.libs/test \
+	test/complete-tzx.tzx \
+	test/wav-mono-threshold.wav \
+	test/wav-stereo-mixdown.wav

@@ -1,0 +1,54 @@
+Running Fuse's unit tests
+=========================
+
+Fuse's test suite is split across several test binaries. The normal
+developer entry point is:
+
+  make check
+
+This builds all test binaries and runs them in sequence:
+
+  fuse --unittests
+      Embedded tests for the debugger expression evaluator,
+      disassembler, memory paging, and other core subsystems.
+      Exits 0 on success or non-zero on failure.
+
+  unittests/displaytest
+      Display write/dirty tests covering Sinclair, Timex, and
+      Pentagon screen modes.
+
+  unittests/palcompositetest
+      PAL composite scaler tests: pixel-format conversions (16-bit
+      and 32-bit), partial and full-screen redraws, and chroma
+      blending across scan lines.
+
+  unittests/scalerexpandtest
+      Scaler expander tests: verifies that each of the four expander
+      types (Normal, TV, Timex, and OpenGL) correctly inflates a
+      dirty region to cover all pixels that a multi-pixel scaler
+      would touch.
+
+  unittests/sdl2displaytest
+  unittests/sdl2scalerstatetest
+  unittests/sdl2joysticktest
+  unittests/sdl2mousetest
+      SDL2 UI subsystem tests (display pipeline, scaler state
+      machine, joystick mapping, mouse input).
+
+  z80/coretest z80/tests/tests.in
+      Z80 CPU core regression suite. Output is written to
+      z80/tests.actual and compared against
+      z80/tests/tests.expected using cmp(1).
+
+Contributors should run `make check' before submitting changes.
+
+To run a single test binary directly (from the build directory), use
+e.g.:
+
+  ./fuse --unittests
+  ./unittests/displaytest
+  ./unittests/palcompositetest
+  ./unittests/scalerexpandtest
+  ./z80/coretest z80/tests/tests.in
+
+For manual peripheral smoke tests, see `hacking/peripheral_tests.txt'.

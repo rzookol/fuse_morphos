@@ -1,0 +1,7 @@
+video_mode=overlay
+filter=2x
+machine=48
+vsync=1
+gl_linear=1
+
+border=1
