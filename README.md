@@ -1,4 +1,3 @@
-[Uploading README(20260907-094545).md…]()
 # Fuse for MorphOS
 
 MorphOS port of **Fuse — the Free Unix Spectrum Emulator**, based on Fuse 1.9.2.
